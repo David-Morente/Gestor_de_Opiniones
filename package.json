@@ -8,9 +8,9 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "David Morente",
   "license": "ISC",
-  "description": "",
+  "description": "Gestor de opiniones",
   "dependencies": {
     "argon2": "^0.41.1",
     "cors": "^2.8.5",

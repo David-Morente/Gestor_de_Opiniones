@@ -5,6 +5,15 @@ import { generateJWT } from "../helpers/generate-jwt.js"
 export const register = async (req, res) => {
     try{
         const data = req.body
+
+        if (data.role && data.role === "ADMIN_ROLE"){
+            return res.status(403).json({
+                message: "No puedes registrate con rol de administrador",
+            })
+        }
+
+        data.role = "USER_ROLE"
+
         const encryptedPassword = await hash(data.password)
 
         data.password = encryptedPassword
