@@ -79,6 +79,16 @@ export const deleteComment = async (req, res) => {
     try{
         const { uid } = req. params
 
+        const findComment = await Publications.findById(uid)
+
+        if (data.user._id.toHexString() != findPublication.user.toHexString()) {
+            return res.status(400).json({
+                success: false,
+                message: 'Error al eliminar el comentario',
+                error: "No puedes eliminar comentarios de otro"
+            });
+        }
+
         const comment =  await Comments.findByIdAndUpdate(uid, {status: false}, {new: true})
 
         return res.status(200).json({
@@ -100,6 +110,16 @@ export const updateComment = async (req, res) => {
     try {
         const { uid } = req.params;
         const  data  = req.body;
+
+        const findComment = await Publications.findById(uid)
+        
+        if (data.user._id.toHexString() != findComment.user.toHexString()) {
+            return res.status(400).json({
+                success: false,
+                message: 'Error al actualizar el comentario',
+                error: "No puedes actualizar comentarios de otro"
+            });
+        }
 
         const comment = await Comments.findByIdAndUpdate(uid, data, { new: true });
 
