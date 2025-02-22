@@ -1,5 +1,5 @@
 import User from "../user/user.model.js"
-import Categories from "../categories/categorie.model.js"
+import Categories from "../categories/categories.model.js"
 
 export const existEmail = async(email = '') =>{
     const existe = await User.findOne({email})

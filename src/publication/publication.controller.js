@@ -4,10 +4,10 @@ export const createPublication = async (req, res) => {
     try{
         const data = req.body
 
-        const categorie = await Categories.create(data)
+        const publication = await Publications.create(data)
         return res.status(201).json({
             message: "Publicación creada",
-            categorie
+            publication
         })
 
     }catch(err){
@@ -78,13 +78,24 @@ export const findPublicationById = async(req, res) => {
 export const deletePublication = async (req, res) => {
     try{
         const { uid } = req. params
+        const  data  = req.body;
 
-        const categorie =  await Categories.findByIdAndUpdate(uid, {status: false}, {new: true})
+        const findPublication = await Publications.findById(uid)
+
+        if (data.user._id.toHexString() != findPublication.user.toHexString()) {
+            return res.status(400).json({
+                success: false,
+                message: 'Error al eliminar la publicación',
+                error: "No puedes eliminar publicaciones de otro"
+            });
+        }
+
+        const publication =  await Publications.findByIdAndUpdate(uid, {status: false}, {new: true})
 
         return res.status(200).json({
             success: true,
             message: "Publicación eliminada",
-            categorie
+            publication
         })
 
     }catch(err){
@@ -100,6 +111,16 @@ export const updatePublication = async (req, res) => {
     try {
         const { uid } = req.params;
         const  data  = req.body;
+
+        const findPublication = await Publications.findById(uid)
+
+        if (data.user._id.toHexString() != findPublication.user.toHexString()) {
+            return res.status(400).json({
+                success: false,
+                message: 'Error al actualizar la publicación',
+                error: "No puedes actualizar publicaciones de otro"
+            });
+        }
 
         const publication = await Publications.findByIdAndUpdate(uid, data, { new: true });
 

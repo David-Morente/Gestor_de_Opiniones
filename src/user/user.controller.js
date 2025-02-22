@@ -57,40 +57,28 @@ export const getUsers = async(req, res) => {
     }
 }
 
-export const deleteUser = async (req, res) => {
-    try{
-        const { uid } = req. params
-
-        const user =  await User.findByIdAndUpdate(uid, {status: false}, {new: true})
-
-        return res.status(200).json({
-            success: true,
-            message: "Usuario Eliminado",
-            user
-        })
-
-    }catch(err){
-        return res.status(500).json({
-            success: false,
-            message: "Error al eliminar el usuario",
-            error: err.message
-        })
-    }
-}
-
 export const updatePassword = async (req, res) => {
     try{
         const { uid } = req.params
-        const { newPassword } =  req.body
+        const { newPassword, oldPassword } =  req.body
 
         const user = await User.findById(uid)
+
+        const validatePassword = await verify(user.password, oldPassword)
+
+        if(validatePassword == false){
+            return res.status(400).json({
+                success: false,
+                message: "Ingrese la contraseña antigua correctamente."
+            })
+        }
 
         const matchPassword = await verify(user.password, newPassword)
 
         if(matchPassword){
             return res.status(400).json({
                 success: false,
-                message: "La nueva contraseña no puede ser igual a la anterior"
+                message: "La contraseña nueva no debe de ser igual a la anterior."
             })
         }
         

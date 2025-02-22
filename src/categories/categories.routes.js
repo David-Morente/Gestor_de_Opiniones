@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { createCategorieValidator, findCategorieByIdValidator, deleteCategorieValidator, updateCategorieValidator } from "../middlewares/categories-validators"
-import { createCategorie, findCategorieById, deleteCategorie, updateCategorie, getCategories} from "./categories.controller"
+import { createCategorieValidator, findCategorieByIdValidator, deleteCategorieValidator, updateCategorieValidator } from "../middlewares/categories-validators.js"
+import { createCategorie, findCategorieById, deleteCategorie, updateCategorie, getCategories} from "./categories.controller.js"
 
 const router = Router()
 
