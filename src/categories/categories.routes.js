@@ -12,6 +12,6 @@ router.get("/findCategorie/:uid", findCategorieByIdValidator, findCategorieById)
 
 router.delete("/deleteCategorie/:uid", deleteCategorieValidator, deleteCategorie)
 
-router.put("/updateCategoríe/:uid", updateCategorieValidator, updateCategorie)
+router.put("/updateCategorie/:uid", updateCategorieValidator, updateCategorie)
 
 export default router
