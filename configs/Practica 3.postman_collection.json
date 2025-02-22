@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "1696bacf-a44e-4528-a97e-0f9affd2135a",
+		"name": "Practica 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37219218"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Rafael\",\r\n    \"surname\":\"Felipe\",\r\n    \"username\":\"rafael-2023242\",\r\n    \"password\":\"12345678\",\r\n    \"email\":\"rafael@gmail.com\",\r\n    \"role\":\"TEACHER_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/findUser/67a923a7d6e5280b341b3cdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"findUser",
+								"67a923a7d6e5280b341b3cdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"Morente2025\",\r\n    \"oldPassword\":\"Morente123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/updatePassword/67b95af9dafb3cd644a167af",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"updatePassword",
+								"67b95af9dafb3cd644a167af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"2023_Dmorente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/deleteUser/67a923a7d6e5280b341b3cdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"deleteUser",
+								"67a923a7d6e5280b341b3cdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Emanuel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/updateUser/67a93de23ac3a2f321c44e13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"updateUser",
+								"67a93de23ac3a2f321c44e13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"dmorente-2023242@gmail.com\",\r\n    \"password\":\"2023_Dmorente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryType\":\"Comedia\",\r\n    \"description\":\"Comedia de la buena\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/categorie/createCategorie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categorie",
+								"createCategorie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/categorie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categorie",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Rafael\",\r\n    \"surname\":\"Felipe\",\r\n    \"username\":\"rafael-2023242\",\r\n    \"password\":\"12345678\",\r\n    \"email\":\"rafael@gmail.com\",\r\n    \"role\":\"TEACHER_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List publication",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/categorie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categorie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List publication Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/api/v1/categorie/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categorie",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"2023_Dmorente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/deleteUser/67a923a7d6e5280b341b3cdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"deleteUser",
+								"67a923a7d6e5280b341b3cdf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
