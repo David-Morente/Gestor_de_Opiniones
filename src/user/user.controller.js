@@ -1,6 +1,32 @@
 import { hash, verify } from "argon2"
 import User from "./user.model.js"
 
+const createAdmin = async () => {
+    try {
+        const adminExists = await User.findOne({ role: "ADMIN_ROLE" });
+
+        if (!adminExists) {
+            const admin = new User({
+                name: "SuperAdmin",
+                surname: "DMORENTE",
+                username: "ADMINDMORENTE",
+                email: "admin@gmail.com",
+                password: "DMORENTE-2023242",
+                role: "ADMIN_ROLE",
+            });
+
+            await admin.save();
+            console.log('Admin creado');
+        } else {
+            console.log('Admin ya existe');
+        }
+    } catch (err) {
+        console.log(`Error al crear el admin: ${err}`);
+    }
+};
+
+export default createAdmin;
+
 export const getUserById = async(req, res) => {
     try{
         const { uid } = req.params;

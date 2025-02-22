@@ -1,5 +1,24 @@
 import Categories from "./categories.model.js"
 
+export const createDefaultCategory = async () => {
+    const categoryExists = await Categories.findOne({ categoryType: "Romance" });
+
+    if (!categoryExists) {
+        const defaultCategory = new Categories({
+            categoryType: "Romance",
+            description: "Romance puro y bueno.",
+            status: true,
+        });
+
+        await defaultCategory.save();
+        console.log('Categoría creada');
+    } else {
+        console.log('Categoría default existe');
+    }
+};
+
+export default createDefaultCategory;
+
 export const createCategorie = async (req, res) => {
     try{
         const data = req.body

@@ -10,6 +10,8 @@ import userRoutes from "../src/user/user.routes.js"
 import categorieRoutes from "./../src/categories/categories.routes.js"
 import publicationRoute from "./../src/publication/publication.routes.js"
 import apiLimiter from "../src/middlewares/validar-cant-peticiones.js"
+import createAdmin from "../src/user/user.controller.js"
+import createDefaultCategory from "../src/categories/categories.controller.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -46,6 +48,8 @@ const routes = (app) => {
 const conectarDB = async () => {
     try{
         await dbConnection()
+        await createAdmin()
+        await createDefaultCategory()
     }catch(err){
         console.log(`Database connection failed: ${err}`)
     }
