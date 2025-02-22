@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { getUserByIdValidator, deleteUserValidator, updatePasswordValidator, updateUserValidator } from "../helpers/db-validator.js"
+import { getUserByIdValidator, deleteUserValidator, updatePasswordValidator, updateUserValidator } from "../middlewares/user-validators"
 import { getUserById, getUsers, deleteUser, updatePassword, updateUser } from "./user.controller"
 
 const router = Router()
